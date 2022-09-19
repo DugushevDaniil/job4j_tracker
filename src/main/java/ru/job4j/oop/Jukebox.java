@@ -22,6 +22,5 @@ public class Jukebox {
         test.music(1);
         test.music(2);
         test.music(3);
-
     }
 }
