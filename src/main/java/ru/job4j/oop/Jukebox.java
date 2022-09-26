@@ -5,16 +5,14 @@ public class Jukebox {
         String song;
         if (position == 1) {
             song = "Пусть бегут неуклюже";
-            System.out.println(song);
         } else {
             if (position == 2) {
                 song = "Спокойной ночи";
-                System.out.println(song);
             } else {
                 song = "Песня не найдена";
-                System.out.println(song);
             }
         }
+        System.out.println(song);
     }
 
     public static void main(String[] args) {
