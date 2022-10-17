@@ -17,10 +17,10 @@ public class Battery {
     }
 
     public static void main(String[] args) {
-        Battery first = new Battery(30);
+        Battery charger = new Battery(30);
         Battery second = new Battery(20);
-        System.out.println("first: " + first.load + ". second: " + second.load);
-        first.exchange(second);
-        System.out.println("first: " + first.load + ". second: " + second.load);
+        System.out.println("charger: " + charger.load + ". second: " + second.load);
+        charger.exchange(second);
+        System.out.println("charger: " + charger.load + ". second: " + second.load);
     }
 }
