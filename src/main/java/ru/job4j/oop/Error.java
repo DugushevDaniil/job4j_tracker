@@ -11,7 +11,7 @@ public class Error {
         this.message = message;
     }
 
-    public Error(){
+    public Error() {
     }
 
     public void printInfo() {
