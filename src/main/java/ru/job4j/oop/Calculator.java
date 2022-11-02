@@ -29,14 +29,12 @@ public class Calculator {
         System.out.println("sum - " + result);
         result = Calculator.minus(10);
         System.out.println("minus - " + result);
-        Calculator divide = new Calculator();
-        double resultDiv = divide.divide(10);
+        Calculator calculator = new Calculator();
+        double resultDiv = calculator.divide(10);
         System.out.println("divide - " + resultDiv);
-        Calculator multiply = new Calculator();
-        int resultMulti = multiply.multiply(10);
+        int resultMulti = calculator.multiply(10);
         System.out.println("multiply - " + resultMulti);
-        Calculator sumAll = new Calculator();
-        double resultSumAll = sumAll.sumAllOperation(10);
+        double resultSumAll = calculator.sumAllOperation(10);
         System.out.println("sumAllOperation - " + resultSumAll);
     }
 }
