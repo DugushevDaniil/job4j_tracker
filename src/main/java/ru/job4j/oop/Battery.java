@@ -22,6 +22,6 @@ public class Battery {
         Battery second = new Battery(20);
         System.out.println("charger: " + charger.load + ". second: " + second.load);
         charger.exchange(second);
-        System.out.println("charger: " + charger.load + ". second: " + second.load);
+        System.out.println("charger: " + charger.load + ". second:  " + second.load);
     }
 }
