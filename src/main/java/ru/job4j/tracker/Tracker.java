@@ -30,7 +30,7 @@ public class Tracker {
         Item[] rsl = new Item[size];
         for (int index = 0; index < size; index++) {
             Item item = items[index];
-            if(item != null) {
+            if (item != null) {
                 rsl[s++] = item;
             }
         }
@@ -43,7 +43,7 @@ public class Tracker {
         Item[] rsl = new Item[size];
         for (int index = 0; index < size; index++) {
             Item item = items[index];
-            if(key.equals(item.getName())) {
+            if (key.equals(item.getName())) {
                rsl[s++] = item;
             }
         }
