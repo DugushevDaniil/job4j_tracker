@@ -70,11 +70,12 @@ public class Tracker {
         int index = indexOf(id);
         if (index == -1) {
             return false;
-        } else
+        } else {
             System.arraycopy(items, index + 1,
                     items, index, size - index - 1);
-        items[size - 1] = null;
-        size--;
-        return true;
+            items[size - 1] = null;
+            size--;
+            return true;
+        }
     }
 }
