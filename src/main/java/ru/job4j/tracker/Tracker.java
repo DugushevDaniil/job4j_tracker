@@ -8,14 +8,14 @@ public class Tracker {
     private int size = 0;
 
     private int indexOf(int id) {
-        int rsl = -1;
+        int result = -1;
         for (int index = 0; index < size; index++) {
             if (items[index].getId() == id) {
-                rsl = index;
+                result = index;
                 break;
             }
         }
-        return rsl;
+        return result;
     }
 
     public Item add(Item item) {
@@ -48,25 +48,23 @@ public class Tracker {
 
     public boolean replace(int id, Item updateItem) {
         int index = indexOf(id);
-        if (index == -1) {
-            return false;
-        } else {
+        boolean result = index != -1;
+        if (result) {
             updateItem.setId(id);
             items[index] = updateItem;
-            return true;
         }
+        return result;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        if (index == -1) {
-            return false;
-        } else {
+        boolean result = index != -1;
+        if (result) {
             System.arraycopy(items, index + 1,
                     items, index, size - index - 1);
             items[size - 1] = null;
             size--;
-            return true;
         }
+        return result;
     }
 }
