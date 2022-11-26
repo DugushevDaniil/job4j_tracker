@@ -42,8 +42,7 @@ public class Tracker {
                result[counter++] = item;
             }
         }
-        result = Arrays.copyOf(result, counter);
-        return result;
+        return Arrays.copyOf(result, counter);
     }
 
     public boolean replace(int id, Item updateItem) {
