@@ -15,8 +15,8 @@ class FactTest {
 
     @Test
     public void whenWork() {
-        int expected = 24;
-        int result = Fact.calc(4);
+        int expected = 6;
+        int result = Fact.calc(3);
         assertThat(result).isEqualTo(expected);
     }
 }
