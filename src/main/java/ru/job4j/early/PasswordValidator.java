@@ -6,7 +6,7 @@ public class PasswordValidator {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
         }
-        if (password.length() < 8 || password.length() > 32){
+        if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
         for (int i = 0; i < password.length(); i++) {
@@ -48,11 +48,11 @@ public class PasswordValidator {
         if (!valid) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
             }
-        if (password.matches("(?i).*" + "qwerty" + ".*") ||
-                password.matches("(?i).*" + "password" + ".*") ||
-                password.matches("(?i).*" + "admin" + ".*") ||
-                password.matches("(?i).*" + "user" + ".*") ||
-                password.matches(".*" + "12345" + ".*")) {
+        if (password.matches("(?i).*" + "qwerty" + ".*")
+                || password.matches("(?i).*" + "password" + ".*")
+                || password.matches("(?i).*" + "admin" + ".*")
+                || password.matches("(?i).*" + "user" + ".*")
+                || password.matches(".*" + "12345" + ".*")) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
             }
             return password;
