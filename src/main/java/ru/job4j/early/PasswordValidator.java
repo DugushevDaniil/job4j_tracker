@@ -36,12 +36,10 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
         String[] invalid = new String[]{"qwerty", "12345", "password", "admin", "user"};
-        if (password.toLowerCase().contains(invalid[0].toLowerCase())
-                || password.toLowerCase().contains(invalid[1])
-                || password.toLowerCase().contains(invalid[2].toLowerCase())
-                || password.toLowerCase().contains(invalid[3].toLowerCase())
-                || password.toLowerCase().contains(invalid[4].toLowerCase())) {
-            throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+        for (int i = 0; i < invalid.length; i++) {
+            if (password.toLowerCase().contains(invalid[i].toLowerCase())) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+            }
         }
         return password;
     }
