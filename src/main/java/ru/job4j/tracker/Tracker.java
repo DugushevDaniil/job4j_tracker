@@ -19,6 +19,7 @@ public class Tracker {
     }
 
     public Item add(Item item) {
+        item.setId(ids++);
         items.add(item);
         return item;
     }
