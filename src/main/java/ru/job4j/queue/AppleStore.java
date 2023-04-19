@@ -18,7 +18,7 @@ public class AppleStore {
             queue.poll();
             counter++;
         }
-        String customer = queue.element().name();
+        String customer = queue.peek().name();
         queue.poll();
         return customer;
     }
@@ -29,6 +29,6 @@ public class AppleStore {
             queue.poll();
             counter++;
         }
-        return queue.element().name();
+        return queue.peek().name();
     }
 }
