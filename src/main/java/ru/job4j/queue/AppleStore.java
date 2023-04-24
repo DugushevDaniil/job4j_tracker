@@ -13,10 +13,8 @@ public class AppleStore {
     }
 
     public String getLastHappyCustomer() {
-        int counter = 1;
-        while (counter < count) {
+        for (int index = 1; index < count; index++) {
             queue.poll();
-            counter++;
         }
         String customer = queue.peek().name();
         queue.poll();
@@ -24,10 +22,8 @@ public class AppleStore {
     }
 
     public String getFirstUpsetCustomer() {
-        int counter = 1;
-        while (counter <= count) {
+        for (int i = 0; i < count; i++) {
             queue.poll();
-            counter++;
         }
         return queue.peek().name();
     }
