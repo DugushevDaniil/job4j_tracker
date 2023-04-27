@@ -16,9 +16,7 @@ public class AppleStore {
         for (int index = 1; index < count; index++) {
             queue.poll();
         }
-        String customer = queue.peek().name();
-        queue.poll();
-        return customer;
+        return queue.poll().name();
     }
 
     public String getFirstUpsetCustomer() {
