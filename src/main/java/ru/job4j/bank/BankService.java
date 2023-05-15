@@ -37,7 +37,7 @@ public class BankService {
     public User findByPassport(String passport) {
         User searchable = null;
         for (User user : users.keySet()) {
-           if(user.getPassport().equals(passport)) {
+           if (user.getPassport().equals(passport)) {
                searchable = user;
            }
         }
