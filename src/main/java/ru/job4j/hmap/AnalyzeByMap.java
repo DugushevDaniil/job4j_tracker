@@ -50,7 +50,7 @@ public class AnalyzeByMap {
                 score1.add(score2);
             }
         }
-        for ( int k = 0; names.size() > k; k++) {
+        for (int k = 0; names.size() > k; k++) {
             for (int j = 0; score1.size() > j; j = j + i) {
                 rsl = score1.get(j) + rsl;
             }
