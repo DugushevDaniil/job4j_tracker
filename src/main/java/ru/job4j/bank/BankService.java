@@ -22,20 +22,20 @@ public class BankService {
     public void addAccount(String passport, Account account) {
         User key = findByPassport(passport);
         if (key != null) {
-        List<Account> newAccount = users.get(key);
-        if (!newAccount.contains(account)) {
-            newAccount.add(account);
-        }
+            List<Account> newAccount = users.get(key);
+            if (!newAccount.contains(account)) {
+                newAccount.add(account);
+            }
         }
     }
 
     public User findByPassport(String passport) {
         User searchable = null;
         for (User user : users.keySet()) {
-           if (user.getPassport().equals(passport)) {
-               searchable = user;
-               break;
-           }
+            if (user.getPassport().equals(passport)) {
+                searchable = user;
+                break;
+            }
         }
         return searchable;
     }
@@ -58,14 +58,14 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-            Account srcAccount = findByRequisite(findByPassport(srcPassport).getPassport(), srcRequisite);
-            Account destAccount = findByRequisite(findByPassport(destPassport).getPassport(), destRequisite);
-            if (srcAccount != null && destAccount != null
-                    && srcAccount.getBalance() >= amount) {
-                    destAccount.setBalance(destAccount.getBalance() + amount);
-                    srcAccount.setBalance(srcAccount.getBalance() - amount);
-                    rsl = true;
-            }
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount != null && destAccount != null
+                && srcAccount.getBalance() >= amount) {
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            srcAccount.setBalance(srcAccount.getBalance() - amount);
+            rsl = true;
+        }
         return rsl;
     }
 
