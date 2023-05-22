@@ -34,29 +34,20 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-        int i = 0;
-        double rsl = 0;
         List<Label> srcSubjects = new ArrayList<>();
-        List<String> names = new ArrayList<>();
-        List<Double> score1 = new ArrayList<>();
-        double score2;
+        Map<String, Integer> subjects = new HashMap<>();
+        int i = 0;
         for (Pupil pupil : pupils) {
-            i++;
             for (Subject subject : pupil.subjects()) {
-                if (!names.contains(subject.name())) {
-                    names.add(subject.name());
+                if (subjects.containsKey(subject.name())) {
+                    subjects.put(subject.name(), subjects.get(subject.name()) + subject.score());
                 }
-                score2 = subject.score();
-                score1.add(score2);
+                subjects.putIfAbsent(subject.name(), subject.score());
             }
+            i = subjects.size();
         }
-        for (int k = 0; names.size() > k; k++) {
-            for (int j = 0; score1.size() > j; j = j + i) {
-                rsl = score1.get(j) + rsl;
-            }
-            srcSubjects.add(new Label(names.get(k), rsl / i));
-            rsl = 0;
-            score1.remove(0);
+        for (String srcSubject : subjects.keySet()) {
+            srcSubjects.add(new Label(srcSubject, subjects.get(srcSubject) / i));
         }
         return srcSubjects;
     }
@@ -77,17 +68,20 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
-       List<Label> subjects = averageScoreBySubject(pupils);
-        double bestScore = 0;
-        int i = 0;
-        String nameOfTheBest = "";
-        for (Label subject : subjects) {
-            i++;
-            if (bestScore < subject.score()) {
-                bestScore = subject.score();
-                nameOfTheBest = subject.name();
+        List<Label> bestSubjects = new ArrayList<>();
+        Map<String, Integer> subjects = new HashMap<>();
+        for (Pupil pupil : pupils) {
+            for (Subject subject : pupil.subjects()) {
+                if (subjects.containsKey(subject.name())) {
+                    subjects.put(subject.name(), subjects.get(subject.name()) + subject.score());
+                }
+                subjects.putIfAbsent(subject.name(), subject.score());
             }
         }
-        return new Label(nameOfTheBest, bestScore * i);
+        for (String srcSubject : subjects.keySet()) {
+            bestSubjects.add(new Label(srcSubject, subjects.get(srcSubject)));
+        }
+        bestSubjects.sort(Comparator.naturalOrder());
+        return bestSubjects.get(bestSubjects.size() - 1);
     }
 }
