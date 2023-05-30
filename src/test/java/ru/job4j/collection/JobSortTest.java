@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class JobSortTest {
     @Test
-    public void JobAscByNameTest() {
+    public void jobAscByNameTest() {
         Comparator<Job> ascName = new JobAscByName();
         int rsl = ascName.compare(
                 new Job("Policeman", 10),
@@ -16,7 +16,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobAscByPriorityTest() {
+    public void jobAscByPriorityTest() {
         Comparator<Job> ascPriority = new JobAscByPriority();
         int rsl = ascPriority.compare(
                 new Job("Policeman", 10),
@@ -26,7 +26,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobDescByNameTest() {
+    public void jobDescByNameTest() {
         Comparator<Job> descName = new JobDescByName();
         int rsl = descName.compare(
                 new Job("Policeman", 10),
@@ -36,7 +36,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobDescByPriorityTest() {
+    public void jobDescByPriorityTest() {
         Comparator<Job> descPriority = new JobDescByName();
         int rsl = descPriority.compare(
                 new Job("Policeman", 10),
@@ -46,7 +46,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobDescCombineTest() {
+    public void jobDescCombineTest() {
         Comparator<Job> descNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = descNamePriority.compare(
                 new Job("Policeman", 1),
@@ -56,7 +56,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobAscCombineTest() {
+    public void jobAscCombineTest() {
         Comparator<Job> ascNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = ascNamePriority.compare(
                 new Job("Policeman", 1),
@@ -66,7 +66,7 @@ class JobSortTest {
     }
 
     @Test
-    public void JobCombineTest() {
+    public void jobCombineTest() {
         Comparator<Job> descNameAscPriority = new JobDescByName().thenComparing(new JobAscByPriority());
         int rsl = descNameAscPriority.compare(
                 new Job("Policeman", 1),
