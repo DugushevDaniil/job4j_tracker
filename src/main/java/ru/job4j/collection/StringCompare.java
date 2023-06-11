@@ -7,7 +7,7 @@ public class StringCompare implements Comparator<String> {
     public int compare(String left, String right) {
         int rsl = 0;
         int length = Math.min(left.length(), right.length());
-        for (int i = 0; i < length ; i++) {
+        for (int i = 0; i < length; i++) {
             rsl = Character.compare(left.charAt(i), right.charAt(i));
             if (rsl != 0) {
                 break;
