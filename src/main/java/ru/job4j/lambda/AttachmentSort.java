@@ -1,5 +1,7 @@
 package ru.job4j.lambda;
 
+import ru.job4j.collection.StringCompare;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -22,16 +24,10 @@ public class AttachmentSort {
         Comparator<Attachment> nameComp = new Comparator<>() {
             @Override
             public int compare(Attachment o1, Attachment o2) {
-                for (int i = 0; i < Math.min(o1.getName().length(), o2.getName().length()); i++) {
-                    int rsl = Character.compare(o1.getName().charAt(i), o2.getName().charAt(i));
-                    if (rsl != 0) {
-                        return rsl;
-                    }
-                }
-                return Integer.compare(o1.getName().length(), o2.getName().length());
+                return o1.getName().compareTo(o2.getName());
             }
         };
         attachments.sort(nameComp);
         System.out.println(attachments);
+        }
     }
-}
