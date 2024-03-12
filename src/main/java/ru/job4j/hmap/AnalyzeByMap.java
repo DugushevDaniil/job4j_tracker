@@ -39,12 +39,14 @@ public class AnalyzeByMap {
         int i = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjects.put(subject.name(), subjects.getOrDefault(subject.name(), 0) + subject.score());
+                subjects.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + subject.score());
             }
             i = subjects.size();
         }
+        double rsl;
         for (String srcSubject : subjects.keySet()) {
-            srcSubjects.add(new Label(srcSubject, subjects.get(srcSubject) / i));
+            rsl = subjects.get(srcSubject);
+            srcSubjects.add(new Label(srcSubject, rsl / i));
         }
         return srcSubjects;
     }
@@ -69,7 +71,7 @@ public class AnalyzeByMap {
         Map<String, Integer> subjects = new HashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjects.put(subject.name(), subjects.getOrDefault(subject.name(), 0) + subject.score());
+                subjects.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + subject.score());
             }
         }
         for (String srcSubject : subjects.keySet()) {
